@@ -1,2 +1,2 @@
 # Netflix-clone
-Clone of Netflix website with landing page, home page, intro and sign in signup page.
+I understand that the clone-based project created by me is intended solely for educational purposes.
