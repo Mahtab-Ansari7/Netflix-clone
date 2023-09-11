@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="home_img/icon.png" type="img/icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+</head>
+
+<body class="bg-black text-white font-sans">
+  <nav class="px-4 flex items-center justify-between ">
+      <div class="flex items-center space-x-4">
+          <img src="home_img/logo.png" alt="Logo" class="w-24 h-20">
+          <a href="#" class="hidden xl:block text-lg font-semibold"></a>
+      </div>
+      <div class="lg:flex xl:flex xl:flex-row hidden space-x-4 items-center ">
+          <ul id="menuList" class="md:flex space-x-4">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="home.html">TV Shows</a></li>
+              <li><a href="home.html">Movies</a></li>
+              <li><a href="home.html">New & Popular</a></li>
+              <li><a href="home.html">My list</a></li>
+              <li><a href="home.html">Browse by Languages</a></li>
+          </ul>
+          <div class="flex-col space-x-4 items-center">
+              <span class="fa fa-search fa inline" aria-hidden="true">
+                  <span>Children</span>
+              </span>
+              <span class="fa fa-bell-o fa" aria-hidden="true"></span>
+              <img src="home_img/navimg1.jpg" alt="Profile Image not found" class="w-8 h-8 inline hover:cursor-pointer rounded-full">
+          </div>
+      </div>
+      <button id="hamburgerIcon" class="lg:hidden text-blue-500 text-3xl">
+          &#9776;
+      </button>
+  </nav>
+
+  <div id="hamburgerMenuContainer" class="hidden xl:flex xl:items-center xl:space-x-4 xl:pl-4 xl:transition-all xl:duration-300">
+      <div class="hamburger-menu w-full xl:w-auto" id="hamburgerMenuList">
+          <ul class="menu flex flex-col text-center space-y-4 xl:hidden">
+              <li><a href="home.html">Home</a></li>
+              <li><a href="home.html">TV Shows</a></li>
+              <li><a href="home.html">Movies</a></li>
+              <li><a href="home.html">New & Popular</a></li>
+              <li><a href="home.html">My list</a></li>
+              <li><a href="home.html">Browse by Languages</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <header id="banner" class="h-[700px] bg-cover bg-center bg-no-repeat ">
+    <div class="banner-content  mt-52 px-6 lg:w-1/3 space-y-5 text-lg absolute">
+        <h1 id="banner-title" class="text-3xl font-bold"></h1>
+        <div class="banner-buttons">
+            <button class="banner-button bg-blue-200 text-base py-1 px-5 hover:text-black hover:bg-gray-300 transition-all duration-200">Play</button>
+            <button class="banner-button bg-blue-200 text-base py-1 px-5 hover:text-black hover:bg-gray-300 transition-all duration-200">My List</button>
+        </div>
+        <h1 id="banner-description" class="text-xs pt-2 mt-auto text-justify max-w-70%"></h1>
+    </div>
+    <div class="banner-fade h-20rem"></div>
+</header>
+<style>
+  .image-container::-webkit-scrollbar {
+    width: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+  .image {
+    width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  .image:hover {
+    transform: scale(1.08);
+  }
+  .largeImage {
+    max-height: 250px;
+  }
+</style>
+
+<div class="row ml-5 mt-2" id="row0" >
+  <h2 class="mb-2 text-3xl font-bold">Netflix Originals</h2>
+  <div class="image-container scroll-container flex space-x-2  overflow-x-scroll scrollbar-hide overflow-y-hidden h-72 w-auto" id="image0">
+  </div>
+</div>
+<div class="row ml-5 mt-2" id="">
+  <h2 class="mb-2 text-3xl font-bold">Trending</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image1">
+  </div>
+</div>
+<div class="row ml-5 mt-2">
+  <h2 class="mb-2 text-3xl font-bold">Top Rated</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image2">
+  </div>
+</div>
+<div class="row ml-5 mt-2">
+  <h2 class="mb-2 text-3xl font-bold">Action Movies</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image3">
+  </div>
+</div>
+
+<div class="row ml-5 mt-2" >
+  <h2 class="mb-2 text-3xl font-bold">Comedy Movies</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image4">
+  </div>
+</div>
+<div class="row ml-5 mt-2" >
+  <h2 class="mb-2 text-3xl font-bold">Horror Movies</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image5">
+  </div>
+</div>
+<div class="row ml-5 mt-2" >
+  <h2 class="mb-2 text-3xl font-bold">Romance Movies</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image6">
+  </div>
+</div>
+<div class="row ml-5 mt-2" >
+  <h2 class="mb-2 text-3xl font-bold">Documentaries</h2>
+  <div class="image-container scroll-container flex space-x-2 overflow-x-scroll overflow-y-hidden h-36 w-auto" id="image7">
+  </div>
+</div>
+<style>
+  .scroll-container::-webkit-scrollbar {
+    width: 0.4rem;
+  }
+  .scroll-container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+</style>
+<footer>
+  <style>
+    .icon-animate {
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .icon-animate:hover {
+      transform: scale(0.9) translateY(-10px);
+    }
+  </style>
+  
+  <div class="flex px-4 pt-8">
+    <a href="home.html" class="fa fa-instagram fa px-3 hover:bg-red-400 text-xl hover:cursor-pointer icon-animate"></a>
+    <a href="home.html" class="fa fa-twitter fa px-3 hover:bg-blue-400 text-xl hover:cursor-pointer icon-animate"></a>
+    <a href="home.html" class="fa fa-youtube fa px-3 hover:bg-red-700 text-xl hover:cursor-pointer icon-animate"></a>
+    <a href="home.html" class="fa fa-facebook fa px-3 hover:bg-blue-200 text-xl hover:cursor-pointer icon-animate"></a>
+  </div>
+  
+  
+  
+
+  <div class="md:flex flex-row px-6 py-8 items-center">
+    <div class="w-1/4">
+      <div class="flex flex-col underline gap-5">
+        <a href="home.html">Audio Description</a>
+        <a href="home.html">Investor Relations</a>
+        <a href="home.html">Legal Notices</a>
+      </div>
+    </div>
+    <div class="w-1/4">
+      <div class="flex flex-col underline gap-5">
+        <a href="home.html">Help Centre</a>
+        <a href="home.html">Jobs</a>
+        <a href="home.html">Cookie Preferences</a>
+      </div>
+    </div>
+    <div class="w-1/4">
+      <div class="flex flex-col underline gap-5">
+        <a href="home.html">Gift card</a>
+        <a href="home.html">Terms of Use</a>
+        <a href="home.html">Corporate Information</a>
+      </div>
+    </div>
+    <div class="w-1/4">
+      <div class="flex flex-col underline gap-5">
+        <a href="home.html">Media Centre</a>
+        <a href="home.html">Privacy</a>
+        <a href="home.html">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="abcontainer" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden bg-black w-60% max-h-96 overflow-y-auto p-4 rounded-lg shadow-lg">
+  <div id="moviePoster" class="mb-4 p-4">
+    <img id="moviePosterImg" src="" alt="" class="w-full max-h-80 object-contain" />
+  </div>
+  <div class="details text-white">
+    <h2 id="title" class="text-3xl font-bold mb-2"></h2>
+    <div class="small-details flex text-sm mb-2">
+      <p id="date" class="mr-4"></p>
+      <p id="language" class="border-l pl-4 pr-4"></p>
+      <p id="rating" class="border-l pl-4 pr-4"></p>
+    </div>
+    <h1 id="description" class="text-sm leading-5 mb-4"></h1>
+    <button id="play" class="bg-red-600 text-white py-2 px-4 rounded-full hover:bg-red-700 transition duration-300 ease-in-out">Play</button>
+  </div>
+  <button id="close" class="absolute top-4 right-4 text-white text-2xl hover:text-gray-400">&times;</button>
+</div>
+
+<script>
+  const hamburgerIcon = document.getElementById("hamburgerIcon");
+  const hamburgerMenuContainer = document.getElementById("hamburgerMenuContainer");
+
+  hamburgerIcon.addEventListener("click", function () {
+    hamburgerMenuContainer.classList.toggle("hidden");
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth >= 768) {
+      hamburgerMenuContainer.classList.add("hidden");
+    }
+  });
+
+  const API_KEY = "a9ea163a20733159ffd462a8d4c49092";
+  const baseURL = "https://api.themoviedb.org/3";
+  const imageUrl = "https://image.tmdb.org/t/p/original/";
+
+  const banner = document.getElementById("banner");
+  const bannerTitle = document.getElementById("banner-title");
+  const bannerDescription = document.getElementById('banner-description');
+
+  const requests = [
+    `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+    `/trending/all/week?api_key=${API_KEY}&language=en-US`,
+    `/movie/top_rated?api_key=${API_KEY}&language=en-US`,
+    `/discover/movie?api_key=${API_KEY}&with_genres=28`,
+    `/discover/movie?api_key=${API_KEY}&with_genres=35`,
+    `/discover/movie?api_key=${API_KEY}&with_genres=27`,
+    `/discover/movie?api_key=${API_KEY}&with_genres=10749`,
+    `/discover/movie?api_key=${API_KEY}&with_genres=99`
+  ];
+
+  async function fetchBannerData() {
+    try {
+      const bannerResponse = await fetch(`${baseURL}${requests[0]}`);
+      const bannerData = await bannerResponse.json();
+      const banners = bannerData.results;
+      const select = banners[Math.floor(Math.random() * banners.length)];
+
+      banner.style.backgroundImage = `url(${imageUrl}${select.backdrop_path})`;
+      bannerTitle.textContent = select.name;
+      bannerDescription.textContent = select.overview;
+    } catch (error) {
+      console.error("Error fetching banner data: ", error);
+    }
+  }
+
+  fetchBannerData();
+
+  async function fetchData() {
+    for (let i = 0; i < 8; i++) {
+      const response = await fetch(`${baseURL}${requests[i]}`);
+      const data = await response.json();
+      const movies = data.results;
+      console.log(movies);
+      createRows(movies, i);
+    }
+  }
+
+  function createRows(movies, i) {
+    movies.map((movie) => {
+      const imag = document.getElementById(`image${i}`);
+      const poster = document.createElement("img");
+      if (i > 0) {
+        poster.src = `${imageUrl}${movie.backdrop_path}`;
+      } else {
+        poster.src = `${imageUrl}${movie.poster_path}`;
+        poster.classList.add('largeImage');
+      }
+      poster.classList.add('image');
+      imag.appendChild(poster);
+
+      poster.addEventListener("click", function () {
+        console.log(movie);
+        openMovieDetails(movie);
+      });
+    });
+  }
+
+  fetchData();
+
+  const container = document.getElementById("abcontainer");
+
+  const closeButton = document.getElementById("close");
+
+  function openMovieDetails(movieData) {
+    container.style.display = "flex";
+    const moviePosterImg = document.getElementById("moviePosterImg");
+    moviePosterImg.src = `${imageUrl}${movieData.poster_path}`;
+    const title = document.getElementById("title");
+    title.textContent = movieData.name || movieData.title || movieData.original_name;
+    const date = document.getElementById("date");
+    date.textContent = movieData.first_air_date;
+    const language = document.getElementById("language");
+    language.textContent = movieData.original_language;
+    const rating = document.getElementById("rating");
+    rating.textContent = movieData.vote_average;
+    const description = document.getElementById("description");
+    description.textContent = movieData.overview;
+  }
+
+  function closeMovieDetails() {
+    container.style.display = "none";
+  }
+
+  closeButton.addEventListener("click", closeMovieDetails);
+
+</script>
+
+</body>
+</html>
+
+</html>

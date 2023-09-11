@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="home_img/icon.png" type="img/icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black">
+    <div class="flex justify-center">
+        
+        <div class="hidden lg:block md:bg-center z-0  md:bg-cover md:bg-no-repeat absolute">
+            <img src="home_img/netfix_bg.jpg" alt="Image not found">
+        </div>
+        <div class=" flex p-4">
+            <img src="home_img/logo.png" alt="" class="w-48  h-full z-10" />
+          </div>
+       
+        <div class="container absolute top-32  w-[350px] h-[600px] bg-black bg-opacity-80 text-white">
+            <h1 class="text-white mt-16 ml-8 text-3xl">Sign Up</h1>
+            <form action="intro.html" id="signUpForm" name="myform" method="post" class="mt-8 ml-8">
+                <input type="text" placeholder="Name" id="name" required name="fname" class="w-[96%] h-12 bg-gray-800 text-white rounded-md text-lg p-2 placeholder-gray-400 focus:outline-none focus:ring focus:border-red-500">
+                <div class="formerror text-red-500"></div>
+                
+                <input type="email" placeholder="Email" id="email" required name="femail" class="w-[96%] h-12 bg-gray-800 text-white rounded-md text-lg p-2 mt-4 placeholder-gray-400 focus:outline-none focus:ring focus:border-red-500">
+                <div class="formerror text-red-500"></div>
+                
+                <input type="tel" placeholder="Phone Number" id="phoneNumber1" required name="fphone" class="w-[96%] h-12 bg-gray-800 text-white rounded-md text-lg p-2 mt-4 placeholder-gray-400 focus:outline-none focus:ring focus:border-red-500">
+                <div class="formerror text-red-500"></div>
+                
+                <input type="password" placeholder="Create Password" id="createPassword" required name="fpass" class="w-[96%] h-12 bg-gray-800 text-white rounded-md text-lg p-2 mt-4 placeholder-gray-400 focus:outline-none focus:ring focus:border-red-500">
+                <div class="formerror text-red-500"></div>
+                
+                <input type="submit" value="Sign Up" class="w-[96%] h-12 bg-red-600 text-white rounded-md text-lg mt-4 cursor-pointer">
+                <br />
+                
+                <input type="checkbox" class="mt-4">
+                <label class="text-gray-500">Terms & Privacy..</label>
+                <a href="#" class="float-right mt-4 mx-2 text-gray-500">Guidelines</a>
+            </form>
+            <div class="content absolute ml-8 mt-16">
+                <h2 class="text-gray-500 sup">
+                    Existing user to Netflix? <a href="signin.html" class="text-red-600">Sign in now.</a>
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <script> 
+    function seterror(id, error) {
+    const element = document.getElementById(id);
+    const errorElement = element.nextElementSibling;
+    errorElement.innerHTML = error;
+  }
+
+  function validateSignUpForm() {
+    const signUpForm = document.getElementById('signUpForm');
+    signUpForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phoneNumber = document.getElementById('phoneNumber1').value;
+      const createPassword = document.getElementById('createPassword').value;
+
+      var returnval = true;
+
+      if (!isValidName(name)) {
+        seterror('name', '*Length of name is too short');
+        returnval = false;
+      }
+
+      if (!isValidEmail(email)) {
+        seterror('email', '*Invalid email format');
+        returnval = false;
+      }
+      if (!isValidPhoneNumber(phoneNumber)) {
+        seterror('phoneNumber1', '*Phone number must be 10 digits');
+        returnval = false;
+      }
+
+      if (!isValidPassword(createPassword)) {
+        seterror('createPassword', '*Password must be at least 6 characters long');
+        returnval = false;
+      }
+
+      if (returnval) {
+        console.log('Sign-up success!');
+        resetForm();
+      }
+    });
+  }
+
+  function isValidName(name) {
+    return name.trim().length >= 5;
+  }
+
+  function isValidEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    return emailPattern.test(email);
+  }
+
+  function isValidPhoneNumber(phoneNumber) {
+    const phoneNumberPattern = /^\d{10}$/;
+    return phoneNumberPattern.test(phoneNumber);
+  }
+
+  function isValidPassword(password) {
+    return password.length >= 6;
+  }
+
+  function resetForm() {
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phoneNumber1').value = ''; 
+    document.getElementById('createPassword').value = '';
+    const errorMessages = document.getElementsByClassName('formerror');
+    for (let i = 0; i < errorMessages.length; i++) {
+      errorMessages[i].innerHTML = '';
+    }
+
+    window.location.href = 'intro.html';
+  }
+  validateSignUpForm();
+    </script>
+</body>
+</html>
